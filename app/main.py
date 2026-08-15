@@ -70,6 +70,10 @@ app.include_router(parametres.router)
 app.include_router(export.router)
 
 
-@app.get("/", tags=["Santé"])
+# @app.get("/", tags=["Santé"])
+# async def health_check():
+#     return {"status": "ok", "message": "API Boutique Bois opérationnelle"}
+
+@app.api_route("/", methods=["GET", "HEAD"], tags=["Santé"])
 async def health_check():
     return {"status": "ok", "message": "API Boutique Bois opérationnelle"}
